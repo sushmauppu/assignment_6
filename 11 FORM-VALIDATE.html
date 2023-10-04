@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form-Validation</title>
+</head>
+<body>
+    <center>
+        <h1>Form Validation</h1>
+        Username         : <input type="text" id="usr"><br><br>
+        Password         : <input type="text" id="pwd"><br><br>
+        Confirm Password : <input type="text" id="confirmPassword"><br><br>
+        <button type="button" onclick="login()">login</button>
+    </center>
+    <script>
+        function login()
+        {
+            var user,passwd,confirmPassword;
+            user=document.getElementById("usr").value;
+            passwd=document.getElementById("pwd").value;
+            confirmPassword=document.getElementById("confirmPassword").value;
+            if(user=="")
+            {
+                window.alert("Please enter username");
+            }
+            if(passwd=="")
+            {
+                window.alert("Please enter password");
+            }
+            if (passwd !== confirmPassword)
+            {
+                window.alert("Passwords do not match");
+            }
+            else
+            {
+                window.alert("Form is valid. Submission successful");
+            }
+        }
+    </script>
+</body>
+</html>
