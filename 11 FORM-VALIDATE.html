@@ -3,40 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form-Validation</title>
-</head>
-<body>
-    <center>
-        <h1>Form Validation</h1>
-        Username         : <input type="text" id="usr"><br><br>
-        Password         : <input type="text" id="pwd"><br><br>
-        Confirm Password : <input type="text" id="confirmPassword"><br><br>
-        <button type="button" onclick="login()">login</button>
-    </center>
+    <title>Form Validation</title>
     <script>
-        function login()
-        {
-            var user,passwd,confirmPassword;
-            user=document.getElementById("usr").value;
-            passwd=document.getElementById("pwd").value;
-            confirmPassword=document.getElementById("confirmPassword").value;
-            if(user=="")
-            {
-                window.alert("Please enter username");
+        function validateForm() {
+            var username = document.getElementById('user').value;
+            var password = document.getElementById('pass').value;
+            var confirmPassword = document.getElementById('confirmPass').value;
+            var phoneNumber = document.getElementById('phoneNumber').value;
+            var pinCode = document.getElementById('pinCode').value;
+            var validationResult = "";
+
+            if (username.length < 8) {
+                validationResult += "Username should be at least 8 characters.\n";
             }
-            if(passwd=="")
-            {
-                window.alert("Please enter password");
+
+            if (password.length < 8) {
+                validationResult += "Password should be at least 8 characters.\n";
             }
-            if (passwd !== confirmPassword)
-            {
-                window.alert("Passwords do not match");
+
+            if (password !== confirmPassword) {
+                validationResult += "Passwords do not match.\n";
             }
-            else
-            {
-                window.alert("Form is valid. Submission successful");
+
+            if (phoneNumber.length > 10) {
+                validationResult += "Phone number should be at most 10 digits.\n";
+            }
+
+            if (pinCode.length > 6) {
+                validationResult += "Pin code should be at most 6 digits.\n";
+            }
+
+            if (validationResult === "") {
+                window.location.href = "https://sushmauppu.github.io/ass-6/index.html";
+            } else {
+                window.alert(validationResult);
             }
         }
     </script>
+</head>
+<body>
+    <center>
+        <h1>Registration Form</h1>
+        <form>
+            Enter username: <input type="text" id="user"><br><br>
+            Enter password: <input type="password" id="pass"><br><br>
+            Confirm password: <input type="password" id="confirmPass"><br><br>
+            Enter phone number: <input type="text" id="phoneNumber"><br><br>
+            Enter pin code: <input type="text" id="pinCode"><br><br>
+            <button type="button" onclick="validateForm()">Register</button>
+        </form>
+    </center>
 </body>
 </html>
